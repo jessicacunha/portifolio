@@ -1,0 +1,38 @@
+﻿@page "/educations"
+
+<h3>Education</h3>
+
+@foreach (var xp in educations)
+{
+    <div class="row">
+        <div class="col-md-8">
+            <h3>@xp.University</h3>
+            <h4>@xp.Course</h4>
+            <p>@xp.Certification</p>
+        </div>
+        <div class="col-md-4 float-right"><h4>@xp.StartDate.ToString("dd/MM/yyyy")  @(xp.EndDate == null ? "" : "- " + ((DateTime)xp.EndDate).ToString("dd/MM/yyyy"))</h4></div>
+    </div>
+    <hr />
+}
+
+@code {
+
+    private List<Education> educations = new List<Education>
+{
+        new Education{ University = "Microsoft", Course = "MCSA: WebApps",
+            Certification = "Microsoft Certification Solutions Associate: WebApps", StartDate = new DateTime(2020,11,27), EndDate = null },
+
+        new Education{ University = "FATEC GUARATINGUETÁ", Course = "INFORMATION TECHNOLOGY MANAGEMENT",
+            Certification = "BACHELOR OF INFORMATION TECHNOLOGY MANAGEMENT", StartDate = new DateTime(2011,1,1), EndDate =  new DateTime(2013,12,31) }
+    };
+
+
+    public class Education
+    {
+        public string University { get; set; }
+        public string Course { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime? EndDate { get; set; }
+        public string Certification { get; set; }
+    }
+}

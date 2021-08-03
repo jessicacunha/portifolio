@@ -1,0 +1,40 @@
+﻿@page "/skills"
+
+<h3>Skills</h3>
+@foreach (var skill in skills)
+{
+    <div class="row">
+        <div class="col-md-12">
+            <h3>@skill.Title</h3>
+            <p class="row">
+                @foreach (var value in skill.Values)
+                {
+                    <h4><span style="margin: 2px" class="badge badge-warning">@value.ToUpper()</span></h4>
+                }
+            </p>
+        </div>
+    </div>
+    <hr />
+}
+
+@code {
+
+    private List<Skill> skills = new List<Skill>()
+{
+          new Skill{ Title = "BackEnd Languages", Values = new List<string>{ "C#", ".Net", ".Net Core", "NodeJS", "Java" }
+},
+        new Skill { Title = "FrontEnd Languages", Values = new List<string> { "Javascript", "Angular", "React", "HTML5", "Blazor" } },
+        new Skill { Title = "Unit Tests", Values = new List<string> { "XUnit", "Visual Studio Test Professional", "Selenium", "NUnit", "JUnit", "Mocha" } },
+        new Skill { Title = "DevOps / Version Control", Values = new List<string> { "Github", "Azure DevOps", "AWS", "Google Cloud", "Digital Ocean", "Heroku" } },
+        new Skill { Title = "Database", Values = new List<string> { "SQL Server", "MySQL", "MongoDB", "PostgreSQL" } },
+        new Skill { Title = "Essential Patterns", Values = new List<string> { "Domain Driven Design", "Test Driven Development", "SOLID Principles", "Design Patterns", "Oriented Object Programming", "Team/Project Management", "Daily Meetings", "Sprint Planning/Review" } },
+        new Skill { Title = "Languages", Values = new List<string> { "Portuguese", "English", "Spanish" } }
+             };
+
+    public class Skill
+
+    {
+        public string Title { get; set; }
+        public List<string> Values { get; set; }
+    }
+}

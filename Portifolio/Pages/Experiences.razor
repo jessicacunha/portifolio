@@ -1,0 +1,56 @@
+﻿@page "/experiences"
+
+@using Portifolio.Data
+@inject ExperienceService service
+
+<h3>Experience</h3>
+
+@foreach (var xp in experiences)
+{
+    <div class="row">
+        <div class="col-md-8">
+            <h3>@xp.Position</h3>
+            <h4>@xp.Company</h4>
+            <p>@xp.Description</p>
+            <p class="row">
+                @foreach (var project in xp.Projects)
+                {
+                    <h4><span style="margin: 2px" class="badge badge-primary">@project.ToUpper()</span></h4>
+                }
+            </p>
+            <p class="row">
+                @foreach (var languagesTools in xp.LanguagesTools)
+                {
+                    <h4><span style="margin: 2px" class="badge badge-warning">@languagesTools.ToUpper()</span></h4>
+                }
+            </p>
+        </div>
+        <div class="col-md-4 float-right"><h4>@xp.StartDate.ToString("dd/MM/yyyy") - @(xp.EndDate == null ? "Present" : ((DateTime)xp.EndDate).ToString("dd/MM/yyyy"))</h4></div>
+    </div>
+    <hr />
+}
+
+
+
+
+@code {
+
+    private List<Experience> experiences = new List<Experience>();
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        experiences = await service.GetForecastAsync();
+    }
+
+    public class Experience
+    {
+        public string Position { get; set; }
+        public string Company { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime? EndDate { get; set; }
+        public string Description { get; set; }
+        public List<string> Projects { get; set; }
+        public List<string> LanguagesTools { get; set; }
+    }
+}

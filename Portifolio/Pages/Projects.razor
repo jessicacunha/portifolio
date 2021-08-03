@@ -1,0 +1,41 @@
+﻿@page "/projects"
+
+<h3>Project</h3>
+<hr />
+@foreach (var xp in projects)
+{
+    <div class="row">
+        <div class="col-md-12">
+            <a href="@xp.Link" target="_blank">
+                <h3>@xp.Name</h3>
+            </a>
+            <p>@xp.Description</p>
+
+        </div>
+    </div>
+    <hr />
+}
+
+@code {
+
+    private List<Project> projects = new List<Project>()
+{
+        new Project{ Name = "Loja CaoPanhia", Link = "https://play.google.com/store/apps/details?id=com.nicolasfontes.caopanhia",
+        Description = "App to manage sales on Pet Market for many sellers."},
+        new Project{ Name = "ANCP", Link = "https://www.ancp.org.br/",
+            Description = "Internal Software to Manage animals and users" },
+        new Project{ Name = "Vegan", Link = "https://play.google.com/store/apps/details?id=com.cognitic.vegan&hl=pt",
+            Description = "Social Network App for Vegans" },
+        new Project{ Name = "Manejo de Resistência", Link = "https://play.google.com/store/apps/details?id=com.arysta.manejo",
+            Description = "App to help, guide and inform the producer." },
+        new Project{ Name = "Check more on my Github", Link = "https://github.com/NicolasRibeiroFontes",
+            Description = "I've developed many internal projects which I can't share publicly. But I have created small project on my Github and you can check on that." }
+    };
+
+    public class Project
+    {
+        public string Name { get; set; }
+        public string Link { get; set; }
+        public string Description { get; set; }
+    }
+}

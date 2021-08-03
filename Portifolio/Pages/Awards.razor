@@ -1,0 +1,125 @@
+﻿@page "/awards"
+
+
+<h2>Courses</h2>
+@foreach (var xp in courses)
+{
+    <div class="row">
+        <div class="col-md-8">
+            <h3>@xp.Title</h3>
+            <h4>@xp.Company</h4>
+
+        </div>
+        <div class="col-md-4 float-right"><h4>@xp.Date.ToString("dd/MM/yyyy")</h4></div>
+
+    </div>
+
+    <hr />
+}
+
+<h2>Talks</h2>
+
+@foreach (var xp in talks)
+{
+    <div class="row">
+        <div class="col-md-8">
+            <h3>@xp.Title</h3>
+            <h4>@xp.Company</h4>
+
+        </div>
+        <div class="col-md-4 float-right"><h4>@xp.Date.ToString("dd/MM/yyyy")</h4></div>
+
+    </div>
+
+    <hr />
+}
+
+<h2>Awards</h2>
+
+@foreach (var xp in awards)
+{
+    <div class="row">
+        <div class="col-md-8">
+            <h3>@xp.Title</h3>
+            <h4>@xp.Company</h4>
+
+        </div>
+        <div class="col-md-4 float-right"><h4>@xp.Date.ToString("dd/MM/yyyy")</h4></div>
+
+    </div>
+
+    <hr />
+}
+
+
+@code {
+
+    public List<Award> courses = new List<Award>()
+   {
+          new Award{ Title = "DevOps Fundations", Company = "LinkedIn",
+          Date = new DateTime(2019, 3, 1) },
+          new Award{ Title = "Scrum Fundamental Certified", Company = "Scrum Study",
+          Date = new DateTime(2018, 5, 1) },
+        new Award
+{
+Title = "TDD and Design Patterns with Java Applications",
+Company = "ITA",
+                     Date = new DateTime(2016, 8, 1)
+},
+        new Award
+{
+Title = "MongoDB for Javascript Developers",
+Company = "MongoDB University",
+                     Date = new DateTime(2014, 7, 4)
+}
+             };
+
+    public List<Award> awards = new List<Award>()
+
+{
+                 new Award
+{
+Title = "Winners of the Empreender Sebrae award",
+Company = "Campus Party",
+                     Date = new DateTime(2013, 1, 31)
+},
+                 new Award
+{
+Title = "Winner of the University Innovation Competition",
+Company = "FATEC Guaratinguetá",
+                     Date = new DateTime(2013, 1, 20)
+}
+             };
+
+    public List<Award> talks = new List<Award>()
+
+{
+                  new Award
+{
+Title = "Events Co-Organizer",
+Company = "Google Developer Group in São José dos Campos",
+                     Date = new DateTime(2018, 12, 31)
+},
+                 new Award
+{
+Title = "Talk About Authentication/Authorization JWT with NodeJS",
+Company = "Google Developer Group",
+                     Date = new DateTime(2018, 1, 20)
+},
+                 new Award
+{
+Title = "Talk About Machine Learning and Chatbot using DialogFlow",
+Company = "Google Developer Group",
+                     Date = new DateTime(2018, 11, 11)
+}
+             };
+
+
+    public class Award
+
+    {
+        public string Title { get; set; }
+        public string Company { get; set; }
+        public DateTime Date { get; set; }
+    }
+}

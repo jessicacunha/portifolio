@@ -1,7 +1,40 @@
 ﻿@page "/"
 
-<h1>Hello, world!</h1>
+<h1>Jessica Fontes</h1>
 
-Welcome to your new app.
+<hr />
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+<div class="alert alert-secondary mt-4" role="alert">
+    <a href="https://www.google.com/maps/place/Galway/53.2839577,-9.0837658,13z/data=!3m1!4b1!4m5!3m4!1s0x485b93955a2d5bff:0x32b1b440a495281!8m2!3d53.270668!4d-9.0567905"
+       target="_blank"><span class="oi oi-home mr-2" aria-hidden="true"></span> @address </a> -
+
+    <a href="whatsapp://send?phone=@phone&text=Hi Jessica"
+       data-action="share/whatsapp/share"
+       target="_blank">
+        <span class="oi oi-phone mr-2" aria-hidden="true"></span>@phone
+    </a>
+    -
+    <a href="mailto:@email" class="ml-md-auto"><span class="oi oi-envelope-closed mr-2" aria-hidden="true"></span>@email</a>
+</div>
+
+<hr />
+<h4>Personal Resume</h4>
+<p>@personalResume</p>
+
+<hr />
+<h4>Professional Resume</h4>
+<p>@profissionalResume</p>
+
+<hr/>
+<img src="/img/azureCertification.png" asp-append-version="true" width="10%" />
+
+@code{
+    private string address = "Galway, Ireland";
+    private string phone = "(89) 986 6658";
+    private string email = "jessiksu@gmail.com";
+    private string personalResume = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+    private string profissionalResume = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+
+
+
+}
